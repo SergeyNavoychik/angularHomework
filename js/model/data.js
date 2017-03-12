@@ -1,12 +1,17 @@
 var data = [
     {
-        text: 'item1',
+        product: 'Carrot',
         price: 22,
-        isBuy: true
+        isBuy: false
     },
     {
-        text: 'item2',
+        product: 'Potato',
         price: 4,
+        isBuy: false
+    },
+    {
+        product: 'Tomato',
+        price: 14,
         isBuy: false
     }
 ]
