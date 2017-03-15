@@ -29,7 +29,6 @@
                 </div>
                 <button class="btn btn-primary" ng-click="addItem(product, price, addForm)">ADD</button>
             </form>
-
         </div>
     </div>
     <div  class="container" ng-controller="TextCtrl">
@@ -45,15 +44,16 @@
                     <td>{{$index+1}}</td>
                     <td>{{item.product}}</td>
                     <td>{{item.price | customFilter }}</td>
-                    <td><input type="checkbox" ng-model="item.isBuy"></td>
+                    <td><input type="checkbox" ng-model="item.isBuy" ng-change="changeIsBuy(item._id)"></td>
+                    <td><button ng-click="deleteItem(item._id)" class="btn-danger">Delete</button></td>
                 </tr>
             </tbody>
         </table>
-        <div product-list=""><p>Product List</p></div>
+        <div class="row text-right">
+            <button ng-click="deleteAllBought()" class="btn btn-danger">Delete All Bought Products</button>
+        </div>
+       <!-- <div product-list=""><p>Product List</p></div>-->
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
 </body>
 </html>

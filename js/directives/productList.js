@@ -7,5 +7,8 @@ myApp.directive("productList", function () {
             li.text(item.product)
             ul.append(li)
         })
+        let p = angular.element("<p>")
+        p.text($scope.allPrice)
+        element.append(p)
     }
 })
