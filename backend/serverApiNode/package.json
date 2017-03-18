@@ -14,11 +14,7 @@
     "body-parser": "^1.17.1",
     "cors": "^2.8.1",
     "express": "^4.15.2",
-    "font-awesome": "^4.7.0",
-    "jquery": "^2.2.3",
-    "mongoose": "^4.8.6",
-    "node-sass": "^4.4.0",
-    "sass-loader": "^4.1.1"
+    "mongoose": "^4.8.6"
   },
   "devDependencies": {},
   "scripts": {

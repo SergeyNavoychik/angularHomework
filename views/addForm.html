@@ -1,0 +1,13 @@
+<div class="form-inline" ng-controller="addCtrl">
+    <form name="addForm">
+        <div class="form-group">
+            <label for="product">Product</label>
+            <input type="text" class="form-control" id="product" ng-model="product" required >
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" ng-model="price" required>
+        </div>
+        <button class="btn btn-primary" ng-click="addItem(product, price, addForm)">ADD</button>
+    </form>
+</div>

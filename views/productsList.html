@@ -1,0 +1,22 @@
+<div  class="container" ng-controller="TextCtrl">
+    <table class="table table-striped">
+        <thead>
+        <td>№</td>
+        <td>Product</td>
+        <td>Price</td>
+        <td>Buy</td>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in data | orderBy:' -price'" ng-class="item.isBuy ? 'buying' : null" >
+            <td>{{$index+1}}</td>
+            <td>{{item.product}}</td>
+            <td>{{item.price | customFilter }}</td>
+            <td><input type="checkbox" ng-model="item.isBuy" ng-change="changeIsBuy(item._id)"></td>
+            <td><button ng-click="deleteItem(item._id)" class="btn-danger">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row text-right">
+        <button ng-click="deleteAllBought()" class="btn btn-danger">Delete All Bought Products</button>
+    </div>
+</div>

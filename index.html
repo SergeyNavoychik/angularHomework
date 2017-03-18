@@ -6,54 +6,27 @@
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/styles.css">
     <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/controller/indexCtrl.js"></script>
     <script src="js/controller/addCtrl.js"></script>
     <script src="js/controller/textCtrl.js"></script>
     <script src="js/directives/productList.js"></script>
     <script src="js/filters/customFilter.js"></script>
     <script src="js/services/dataService.js"></script>
+    <script src="js/config/config.js"></script>
+
 </head>
 <body ng-controller="IndexCtrl">
     <div class="container">
         <h1>Shopping list</h1>
         <hr>
-        <div class="form-inline" ng-controller="addCtrl">
-            <form name="addForm">
-                <div class="form-group">
-                    <label for="product">Product</label>
-                    <input type="text" class="form-control" id="product" ng-model="product" required >
-                </div>
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="number" class="form-control" id="price" ng-model="price" required>
-                </div>
-                <button class="btn btn-primary" ng-click="addItem(product, price, addForm)">ADD</button>
-            </form>
-        </div>
+        <ul class="nav nav-pills">
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/add">Add</a></li>
+            <li><a href="#/list">List</a></li>
+        </ul>
+        <ng-view></ng-view>
     </div>
-    <div  class="container" ng-controller="TextCtrl">
-        <table class="table table-striped">
-            <thead>
-                <td>№</td>
-                <td>Product</td>
-                <td>Price</td>
-                <td>Buy</td>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in data | orderBy:' -price'" ng-class="item.isBuy ? 'buying' : null" >
-                    <td>{{$index+1}}</td>
-                    <td>{{item.product}}</td>
-                    <td>{{item.price | customFilter }}</td>
-                    <td><input type="checkbox" ng-model="item.isBuy" ng-change="changeIsBuy(item._id)"></td>
-                    <td><button ng-click="deleteItem(item._id)" class="btn-danger">Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="row text-right">
-            <button ng-click="deleteAllBought()" class="btn btn-danger">Delete All Bought Products</button>
-        </div>
-       <!-- <div product-list=""><p>Product List</p></div>-->
-    </div>
-
 </body>
 </html>
